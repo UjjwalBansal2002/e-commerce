@@ -27,16 +27,17 @@ function NavIcons() {
 
   return (
     <div className="flex items-center gap-4 xl:gap-6 relative">
-
       {/* Profile */}
-      <Image
-        onClick={handleProfile}
-        src="/profile.png"
-        alt="search"
-        width={16}
-        height={16}
-        className=" cursor-pointer"
-      />
+      <Link href="/login">
+        <Image
+          onClick={handleProfile}
+          src="/profile.png"
+          alt="search"
+          width={16}
+          height={16}
+          className=" cursor-pointer"
+        />
+      </Link>
       {isProfileOpen && (
         <div className="absolute p-4 rounded-md left-0 top-10 z-20 text-sm bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
           <Link href="/">Profile</Link>
@@ -44,11 +45,15 @@ function NavIcons() {
         </div>
       )}
 
-
       {/* Notifications */}
 
-      <Image src="/notification.png" alt="search" width={16} height={16} className=" cursor-pointer"/>
-
+      <Image
+        src="/notification.png"
+        alt="search"
+        width={16}
+        height={16}
+        className=" cursor-pointer"
+      />
 
       {/* Cart */}
 
@@ -59,12 +64,12 @@ function NavIcons() {
           width={16}
           height={16}
           className=" cursor-pointer"
-
         />
         <div className=" cursor-pointer absolute bg-pink-500 -top-4 -right-3 rounded-full w-5 h-5 text-center text-white text-sm flex items-center justify-center">
           2
         </div>
-      </div>{isCartOpen&&<CartModel/>}
+      </div>
+      {isCartOpen && <CartModel />}
     </div>
   );
 }
